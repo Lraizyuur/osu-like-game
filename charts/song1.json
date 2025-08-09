@@ -1,0 +1,11 @@
+{
+  "title": "Demo Song 1 (Inst)",
+  "audio": "Xenosphere_inst.mp3",
+  "notes": [
+    { "time": 800, "x": 200, "y": 180 },
+    { "time": 1400, "x": 400, "y": 220 },
+    { "time": 2000, "x": 300, "y": 300 },
+    { "time": 2600, "x": 500, "y": 260 },
+    { "time": 3200, "x": 350, "y": 350 }
+  ]
+}
