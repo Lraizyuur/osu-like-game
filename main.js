@@ -1,6 +1,6 @@
 // --- 曲リスト（ここに作る譜面ファイルを追加していく） ---
 const chartsList = [
-  { name: "Demo Song 1", file: "charts/song1.json" },
+  { name: "Xenosphere", file: "charts/song1.json" },
   { name: "Demo Song 2", file: "charts/song2.json" },
   // 後で5つくらい追加してください
 ];
