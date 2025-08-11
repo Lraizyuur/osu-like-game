@@ -21,17 +21,39 @@ let stats = { perfect: 0, good: 0, bad: 0, miss: 0 };
 // 判定設定（ms）
 const JUDGE = { perfect: 50, good: 120, bad: 200, miss: 200 };
 // 視覚設定
-const HIT_RADIUS = 28;
+const HIT_RADIUS = 45; // ヒット判定半径（px）
 const APPROACH_TIME = 1000; // ノーツが出現する先行時間（ms）
-const MAX_APPROACH_RADIUS = 120;
+const MAX_APPROACH_RADIUS = 180; // アプローチサークルの最大半径（px）
 
 // --- UI要素 ---
-const selectEl = document.getElementById("chartSelect");
+const selectEl = document.getElementById("chartSelect");  
 const startBtn = document.getElementById("startBtn");
 const menuEl = document.getElementById("menu");
 const hudScore = document.getElementById("score");
 const hudJudge = document.getElementById("judge");
 const resultEl = document.getElementById("result");
+
+// --- Web Audio API: ヒット音準備 ---
+const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+let hitBuffer = null;
+
+// 効果音を読み込み
+fetch("sounds/maou_se_system14.mp3")
+    .then(res => res.arrayBuffer())
+    .then(data => audioContext.decodeAudioData(data))
+    .then(buffer => {
+        hitBuffer = buffer;
+    })
+    .catch(err => console.error("効果音読み込み失敗:", err));
+
+// 判定成功時に呼ぶ関数（低遅延再生）
+function playHitSound() {
+    if (!hitBuffer) return; // 読み込み中はスキップ
+    const source = audioContext.createBufferSource();
+    source.buffer = hitBuffer;
+    source.connect(audioContext.destination);
+    source.start(0);
+}
 
 // populate select
 document.addEventListener("DOMContentLoaded", () => {
@@ -183,6 +205,7 @@ canvas.addEventListener("click", (e) => {
       stats.bad++;
     }
     // （任意）ヒット音やエフェクトをここで鳴らしたり表示したりする
+    playHitSound();
   }
 });
 
