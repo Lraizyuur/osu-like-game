@@ -2,6 +2,7 @@
 const chartsList = [
   { name: "Xenosphere", file: "charts/song1.json" },
   { name: "愛ト茄子ト平和ナ果実", file: "charts/song2.json" },
+  { name: "bad_apple!", file: "charts/song3.json" }
 ];
 
 // canvas準備 
