@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <title>簡易譜面エディター</title>
+  <style>
+    body { background: #111; color: #eee; font-family: sans-serif; }
+    #gameCanvas { background: #222; border: 1px solid #555; display: block; margin: 10px auto; }
+    #controls { text-align: center; margin-top: 10px; }
+    #notesList { max-height: 150px; overflow-y: auto; background: #222; padding: 10px; font-size: 14px; }
+    button { margin: 0 5px; padding: 8px 16px; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <h1 style="text-align:center;">簡易譜面エディター</h1>
+  <canvas id="gameCanvas" width="800" height="600"></canvas>
+  <div id="controls">
+    <button id="btnPlayPause">再生/一時停止</button>
+    <button id="btnExport">JSONエクスポート</button>
+  </div>
+  <pre id="notesList"></pre>
+
+  <script src="editor.js"></script>
+</body>
+</html>
