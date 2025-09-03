@@ -5,7 +5,7 @@ const btnPlayPause = document.getElementById("btnPlayPause");
 const btnExport = document.getElementById("btnExport");
 const notesList = document.getElementById("notesList");
 
-const audio = new Audio("charts/愛ト茄子ト平和ナ果実_saiB_202509020957.mp3");
+const audio = new Audio("charts/bad_apple!.mp3");
 let playing = false;
 
 let notes = [];
