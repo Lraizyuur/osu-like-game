@@ -1,20 +1,20 @@
-// --- 曲リスト（ここに作る譜面ファイルを追加していく） ---
+// 曲リスト
 const chartsList = [
   { name: "Xenosphere", file: "charts/song1.json" },
   { name: "愛ト茄子ト平和ナ果実", file: "charts/song2.json" },
 ];
 
-// --- canvas準備 ---
+// canvas準備 
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
-// --- Web Audio API ---
+// Web Audio API
 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 let musicBuffer = null;
 let hitBuffer = null;
 let musicSource = null;
 
-// --- グローバル状態 ---
+// グローバル状態
 let notes = [];
 let startTime = 0;
 let running = false;
@@ -29,7 +29,7 @@ const HIT_RADIUS = 45;
 const APPROACH_TIME = 1000;
 const MAX_APPROACH_RADIUS = 180;
 
-// --- UI要素 ---
+// UI要素
 const selectEl = document.getElementById("chartSelect");  
 const startBtn = document.getElementById("startBtn");
 const menuEl = document.getElementById("menu");
@@ -51,7 +51,7 @@ fetch("sounds/maou_se_system14.mp3")
   .catch(err => console.error("効果音読み込み失敗:", err));
 */
 
-// --- ランキング管理 ---
+// ランキング管理 
 function loadRanking() {
   const raw = localStorage.getItem("ranking");
   return raw ? JSON.parse(raw) : [];
